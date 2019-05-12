@@ -1,5 +1,3 @@
-using System.Threading.Tasks.Dataflow;
-
 namespace GoL
 {
     public class Starter
