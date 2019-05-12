@@ -3,14 +3,13 @@ namespace GoL
 {
     public class Cell
     {
-        
-        private Boolean status;
+        public bool Status { get; set;}
         
         public Cell(bool standardStatus)
         {
-            status = standardStatus;
+            Status = standardStatus;
         }
         
-        public bool Status { get; set;}
+        
     }
 }
