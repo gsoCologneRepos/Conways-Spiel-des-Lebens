@@ -1,0 +1,11 @@
+/home/polito/RiderProjects/GoL/GoL/bin/Debug/netcoreapp2.2/GoL.deps.json
+/home/polito/RiderProjects/GoL/GoL/bin/Debug/netcoreapp2.2/GoL.runtimeconfig.json
+/home/polito/RiderProjects/GoL/GoL/bin/Debug/netcoreapp2.2/GoL.runtimeconfig.dev.json
+/home/polito/RiderProjects/GoL/GoL/bin/Debug/netcoreapp2.2/GoL.dll
+/home/polito/RiderProjects/GoL/GoL/bin/Debug/netcoreapp2.2/GoL.pdb
+/home/polito/RiderProjects/GoL/GoL/obj/Debug/netcoreapp2.2/GoL.csprojAssemblyReference.cache
+/home/polito/RiderProjects/GoL/GoL/obj/Debug/netcoreapp2.2/GoL.csproj.CoreCompileInputs.cache
+/home/polito/RiderProjects/GoL/GoL/obj/Debug/netcoreapp2.2/GoL.AssemblyInfoInputs.cache
+/home/polito/RiderProjects/GoL/GoL/obj/Debug/netcoreapp2.2/GoL.AssemblyInfo.cs
+/home/polito/RiderProjects/GoL/GoL/obj/Debug/netcoreapp2.2/GoL.dll
+/home/polito/RiderProjects/GoL/GoL/obj/Debug/netcoreapp2.2/GoL.pdb
