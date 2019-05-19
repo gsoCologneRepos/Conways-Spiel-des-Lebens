@@ -1,5 +1,3 @@
-using System.Runtime.Serialization;
-
 namespace GoL
 {
     public static class Logik
