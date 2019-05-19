@@ -3,8 +3,9 @@ namespace GoL
 {
     public static class Zeichner
     {
-        public static void Zeichnen(Cell[,] spielfeld)
+        public static void Zeichnen(Cell[,] spielfeld, int round)
         {
+            Console.WriteLine("Runde: "+round);
             for (int i = 0; i < spielfeld.GetLength(0); i++)
             {
                 for (int j = 0; j < spielfeld.GetLength(0); j++)

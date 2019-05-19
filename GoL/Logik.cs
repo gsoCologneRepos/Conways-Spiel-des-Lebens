@@ -4,7 +4,7 @@ namespace GoL
 {
     public static class Logik
     {
-        public static int checkTop(Cell[,] spielfeld, int x, int y)
+        private static int checkTop(Cell[,] spielfeld, int x, int y)
         {
             if (spielfeld[x-1, y].Status)
             {
@@ -14,7 +14,7 @@ namespace GoL
             return 0;
         }
 
-        public static int checkTopLeft(Cell[,] spielfeld, int x, int y)
+        private static int checkTopLeft(Cell[,] spielfeld, int x, int y)
         {
             if (spielfeld[x - 1, y - 1].Status)
             {
@@ -24,7 +24,7 @@ namespace GoL
             return 0;
         }
 
-        public static int checkLeft(Cell[,] spielfeld, int x, int y)
+        private static int checkLeft(Cell[,] spielfeld, int x, int y)
         {
             if (spielfeld[x, y - 1].Status)
             {
@@ -34,7 +34,7 @@ namespace GoL
             return 0;
         }
         
-        public static int checkBotLeft(Cell[,] spielfeld, int x, int y)
+        private static int checkBotLeft(Cell[,] spielfeld, int x, int y)
         {
             if (spielfeld[x + 1, y - 1].Status)
             {
@@ -45,7 +45,7 @@ namespace GoL
         }
 
 
-        public static int checkBot(Cell[,] spielfeld, int x, int y)
+        private static int checkBot(Cell[,] spielfeld, int x, int y)
         {
             if (spielfeld[x+1, y].Status)
             {
@@ -55,7 +55,7 @@ namespace GoL
             return 0;
         }
         
-        public static int checkBotRight(Cell[,] spielfeld, int x, int y)
+        private static int checkBotRight(Cell[,] spielfeld, int x, int y)
         {
             if (spielfeld[x+1, y + 1].Status)
             {
@@ -65,7 +65,7 @@ namespace GoL
             return 0;
         }
         
-        public static int checkRight(Cell[,] spielfeld, int x, int y)
+        private static int checkRight(Cell[,] spielfeld, int x, int y)
         {
             if (spielfeld[x, y + 1].Status)
             {
@@ -74,7 +74,7 @@ namespace GoL
             return 0;
         }
 
-        public static int checkTopRight(Cell[,] spielfeld, int x, int y)
+        private static int checkTopRight(Cell[,] spielfeld, int x, int y)
         {
             if (spielfeld[x-1,y+1].Status)
             {
@@ -126,16 +126,16 @@ namespace GoL
             }
         }
 
-        public static void botRightCorner(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x)
+        public static void botRightCorner(Cell[,] spielfeld, Cell[,] spielfeldNeu, int xMax)
         {
             int counter = 0;
-            counter += checkTop(spielfeld, x, x);
-            counter += checkTopLeft(spielfeld, x, x);
-            counter += checkLeft(spielfeld, x, x);
+            counter += checkTop(spielfeld, xMax, xMax);
+            counter += checkTopLeft(spielfeld, xMax, xMax);
+            counter += checkLeft(spielfeld, xMax, xMax);
             
             if (counter >= 3)
             {
-                spielfeldNeu[x, x].Status = true;
+                spielfeldNeu[xMax, xMax].Status = true;
             }
         }
 
@@ -158,8 +158,8 @@ namespace GoL
         {
             int counter = 0;
             counter += checkLeft(spielfeld, x, y);
-            counter += checkTop(spielfeld, x, y);
             counter += checkTopLeft(spielfeld, x, y);
+            counter += checkTop(spielfeld, x, y);
             counter += checkTopRight(spielfeld, x, y);
             counter += checkRight(spielfeld, x, y);
 
@@ -169,15 +169,48 @@ namespace GoL
             }
         }
         
-        public static void leftRow(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        public static void leftColumn(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
         {
             int counter = 0;
-            counter += checkRight(spielfeld, x, y);
-            counter += checkTop(spielfeld, x, y);
             counter += checkTop(spielfeld, x, y);
             counter += checkTopRight(spielfeld, x, y);
             counter += checkRight(spielfeld, x, y);
+            counter += checkBotRight(spielfeld, x, y);
+            counter += checkBot(spielfeld, x, y);
 
+            if (counter >= 3)
+            {
+                spielfeldNeu[x, y].Status = true;
+            }
+        }
+        
+        public static void rightColumn(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        {
+            int counter = 0;
+            counter += checkTop(spielfeld, x, y);
+            counter += checkTopLeft(spielfeld, x, y);
+            counter += checkLeft(spielfeld, x, y);
+            counter += checkBotLeft(spielfeld, x, y);
+            counter += checkBot(spielfeld, x, y);
+
+            if (counter >= 3)
+            {
+                spielfeldNeu[x, y].Status = true;
+            }
+        }
+        
+        public static void fullCircle(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        {
+            int counter = 0;
+            counter += checkTop(spielfeld, x, y);
+            counter += checkTopLeft(spielfeld, x, y);
+            counter += checkLeft(spielfeld, x, y);
+            counter += checkBotLeft(spielfeld, x, y);
+            counter += checkBot(spielfeld, x, y);
+            counter += checkBotRight(spielfeld, x, y);
+            counter += checkRight(spielfeld, x, y);
+            counter += checkTopRight(spielfeld, x, y);
+            
             if (counter >= 3)
             {
                 spielfeldNeu[x, y].Status = true;
