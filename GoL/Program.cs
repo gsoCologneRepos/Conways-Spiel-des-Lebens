@@ -29,18 +29,18 @@ namespace GoL
             int round = 1;
             while (true)
             {
+                Console.Clear();
                 Zeichner.Zeichnen(spielfeld,round);
                 Console.WriteLine("Es leben "+Logik.countAlive(spielfeld)+" Zellen.");
                 pivot = spielfeld;
                 spielfeld = Starter.spielzug(spielfeld, xMax,percent);
                 round++;
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
                 if (Logik.checkIfDone(spielfeld, pivot))
                 {
                     Console.WriteLine("Spiel beendet.");
                     Environment.Exit(0);
                 }
-                Console.Clear();
             }
         }
     }
