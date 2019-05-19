@@ -19,10 +19,11 @@ namespace GoL
             spielfeld = starter.fill(spielfeld);
             int round = 1;
             int counter = 0;
+            
             while (true)
             {
-                spielfeld = Starter.spielzug(spielfeld, xMax);
                 Zeichner.Zeichnen(spielfeld,round);
+                spielfeld = Starter.spielzug(spielfeld, xMax);
                 round++;
                 Thread.Sleep(5000);
                 Console.Clear();

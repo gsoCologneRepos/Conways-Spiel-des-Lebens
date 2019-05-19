@@ -68,30 +68,30 @@ namespace GoL
                     //linke Spalte
                     else if (x != 0 && y == 0 && x != xMax)
                     {
-                        spielfeld[x,y].Status = Logik.leftColumn(spielfeld, x, y);
+                        spielfeldNeu[x,y].Status = Logik.leftColumn(spielfeld, x, y);
                     }
 
                     //rechte Spalte
                     else if (x != 0 && y == xMax)
                     {
-                        spielfeld[x,y].Status = Logik.rightColumn(spielfeld, x, y);
+                        spielfeldNeu[x,y].Status = Logik.rightColumn(spielfeld, x, y);
                     }
 
                     //oben
                     else if (x == 0 && y != 0 && y!=xMax)
                     {
-                        spielfeld[x,y].Status = Logik.topRow(spielfeld, x, y);
+                        spielfeldNeu[x,y].Status = Logik.topRow(spielfeld, x, y);
                     }
 
                     //unten
                     else if (x == xMax && y != 0)
                     {
-                        Logik.botRow(spielfeld, x, y);
+                        spielfeldNeu[x,y].Status =Logik.botRow(spielfeld, x, y);
                     }
 
                     else
                     {
-                        Logik.fullCircle(spielfeld, x, y);
+                        spielfeldNeu[x,y].Status =Logik.fullCircle(spielfeld, x, y);
                     }
                 }
             }
