@@ -85,7 +85,7 @@ namespace GoL
         }
         
         
-        public static void topLeftCorner(Cell[,] spielfeld, Cell[,] spielfeldNeu)
+        public static bool topLeftCorner(Cell[,] spielfeld)
         {
             int counter = 0;
             counter += checkRight(spielfeld, 0, 0);
@@ -94,12 +94,14 @@ namespace GoL
 
             if (counter >= 3)
             {
-                spielfeldNeu[0, 0].Status = true;
+                return true;
             }
+
+            return false;
         }
         
 
-        public static void botLeftCorner(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x)
+        public static bool botLeftCorner(Cell[,] spielfeld, int x)
         {
             int counter = 0;
             counter += checkTop(spielfeld, x, 0);
@@ -108,12 +110,14 @@ namespace GoL
             
             if (counter >= 3)
             {
-                spielfeldNeu[x, 0].Status = true;
+                return true;
             }
+
+            return false;
         }
 
         //[Zeile,Spalte]
-        public static void topRightCorner(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x)
+        public static bool topRightCorner(Cell[,] spielfeld, int x)
         {
             int counter = 0;
             counter += checkLeft(spielfeld, 0, x);
@@ -122,11 +126,13 @@ namespace GoL
 
             if (counter >= 3)
             {
-                spielfeldNeu[0, x].Status = true;
+                return true;
             }
+
+            return false;
         }
 
-        public static void botRightCorner(Cell[,] spielfeld, Cell[,] spielfeldNeu, int xMax)
+        public static bool botRightCorner(Cell[,] spielfeld, int xMax)
         {
             int counter = 0;
             counter += checkTop(spielfeld, xMax, xMax);
@@ -135,11 +141,13 @@ namespace GoL
             
             if (counter >= 3)
             {
-                spielfeldNeu[xMax, xMax].Status = true;
+                return true;
             }
+
+            return false;
         }
 
-        public static void topRow(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        public static bool topRow(Cell[,] spielfeld, int x,int y)
         {
             int counter = 0;
             counter += checkLeft(spielfeld, x, y);
@@ -150,11 +158,13 @@ namespace GoL
 
             if (counter >= 3)
             {
-                spielfeldNeu[x, y].Status = true;
+                return true;
             }
+
+            return false;
         }
         
-        public static void botRow(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        public static bool botRow(Cell[,] spielfeld, int x,int y)
         {
             int counter = 0;
             counter += checkLeft(spielfeld, x, y);
@@ -165,11 +175,13 @@ namespace GoL
 
             if (counter >= 3)
             {
-                spielfeldNeu[x, y].Status = true;
+                return true;
             }
+
+            return false;
         }
         
-        public static void leftColumn(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        public static bool leftColumn(Cell[,] spielfeld, int x,int y)
         {
             int counter = 0;
             counter += checkTop(spielfeld, x, y);
@@ -180,11 +192,13 @@ namespace GoL
 
             if (counter >= 3)
             {
-                spielfeldNeu[x, y].Status = true;
+                return true;
             }
+
+            return false;
         }
         
-        public static void rightColumn(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        public static bool rightColumn(Cell[,] spielfeld, int x,int y)
         {
             int counter = 0;
             counter += checkTop(spielfeld, x, y);
@@ -195,11 +209,13 @@ namespace GoL
 
             if (counter >= 3)
             {
-                spielfeldNeu[x, y].Status = true;
+                return true;
             }
+
+            return false;
         }
         
-        public static void fullCircle(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        public static bool fullCircle(Cell[,] spielfeld, int x,int y)
         {
             int counter = 0;
             counter += checkTop(spielfeld, x, y);
@@ -213,8 +229,10 @@ namespace GoL
             
             if (counter >= 3)
             {
-                spielfeldNeu[x, y].Status = true;
+                return true;
             }
+
+            return false;
         }
     }
 }

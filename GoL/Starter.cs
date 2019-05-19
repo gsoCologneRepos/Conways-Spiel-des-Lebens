@@ -18,7 +18,7 @@ namespace GoL
             {
                 for (int j = 0; j < spielfeld.GetLength(0); j++)
                 {
-                    if (rnd.Next(1, 101) > 90)
+                    if (rnd.Next(1, 101) > 70)
                     {
                         spielfeld[i, j] = new Cell(true);
                     }
@@ -32,8 +32,13 @@ namespace GoL
             return spielfeld;
         }
 
-        public static void spielzug(Cell[,] spielfeld, Cell[,] spielfeldNeu, int xMax)
+        public static Cell[,] spielzug(Cell[,] spielfeld, int xMax)
         {
+            Starter starter = new Starter();
+            Cell[,] spielfeldNeu = starter.start(xMax);
+            spielfeldNeu = starter.fill(spielfeldNeu);
+            
+            xMax = xMax - 1;
             for (int x = 0; x < spielfeld.GetLength(0); x++)
             {
                 for (int y = 0; y < spielfeld.GetLength(0); y++)
@@ -41,55 +46,57 @@ namespace GoL
                     //Oben Links
                     if (x == 0 && y == 0)
                     {
-                        Logik.topLeftCorner(spielfeld, spielfeldNeu);
+                        spielfeldNeu[0,0].Status = Logik.topLeftCorner(spielfeld);
                     }
                     //Unten Rechts
                     else if (x == xMax && y == xMax)
                     {
-                        Logik.botRightCorner(spielfeld, spielfeldNeu, x);
+                        spielfeldNeu[x,y].Status = Logik.botRightCorner(spielfeld, x);
                     }
                     //Unten Links
                     else if (x == xMax && y == 0)
                     {
-                        Logik.botLeftCorner(spielfeld, spielfeldNeu, x);
+                        spielfeldNeu[xMax,0].Status = Logik.botLeftCorner(spielfeld, x);
                     }
 
                     // oben Rechts
                     else if (x == 0 && y == xMax)
                     {
-                        Logik.topRightCorner(spielfeld, spielfeldNeu, x);
+                        spielfeldNeu[0,xMax].Status = Logik.topRightCorner(spielfeld, y);
                     }
 
                     //linke Spalte
                     else if (x != 0 && y == 0 && x != xMax)
                     {
-                        Logik.leftColumn(spielfeld, spielfeldNeu, x, y);
+                        spielfeld[x,y].Status = Logik.leftColumn(spielfeld, x, y);
                     }
 
                     //rechte Spalte
                     else if (x != 0 && y == xMax)
                     {
-                        Logik.rightColumn(spielfeld, spielfeldNeu, x, y);
+                        spielfeld[x,y].Status = Logik.rightColumn(spielfeld, x, y);
                     }
 
                     //oben
-                    else if (x == 0 && y != 0)
+                    else if (x == 0 && y != 0 && y!=xMax)
                     {
-                        Logik.topRow(spielfeld, spielfeldNeu, x, y);
+                        spielfeld[x,y].Status = Logik.topRow(spielfeld, x, y);
                     }
 
                     //unten
                     else if (x == xMax && y != 0)
                     {
-                        Logik.botRow(spielfeld, spielfeldNeu, x, y);
+                        Logik.botRow(spielfeld, x, y);
                     }
 
                     else
                     {
-                        Logik.fullCircle(spielfeld, spielfeldNeu, x, y);
+                        Logik.fullCircle(spielfeld, x, y);
                     }
                 }
             }
+
+            return spielfeldNeu;
         }
     }
 }
