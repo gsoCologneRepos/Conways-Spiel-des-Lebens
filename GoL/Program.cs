@@ -9,8 +9,9 @@ namespace GoL
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Wie gross soll das Spielfeld sein?");
+            int xMax = Int32.Parse(Console.ReadLine());
             Starter starter = new Starter();
-            int xMax = 5;
 
             Cell[,] spielfeld = starter.start(xMax);
            
