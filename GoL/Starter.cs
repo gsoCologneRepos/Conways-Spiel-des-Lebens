@@ -11,14 +11,14 @@ namespace GoL
             return spielfeld;
         }
 
-        public Cell[,] fill(Cell[,] spielfeld)
+        public Cell[,] fill(Cell[,] spielfeld, int percent)
         {
             Random rnd = new Random();
             for (int i = 0; i < spielfeld.GetLength(0); i++)
             {
                 for (int j = 0; j < spielfeld.GetLength(0); j++)
                 {
-                    if (rnd.Next(1, 101) > 70)
+                    if (rnd.Next(1, 101) > percent)
                     {
                         spielfeld[i, j] = new Cell(true);
                     }
@@ -32,11 +32,11 @@ namespace GoL
             return spielfeld;
         }
 
-        public static Cell[,] spielzug(Cell[,] spielfeld, int xMax)
+        public static Cell[,] spielzug(Cell[,] spielfeld, int xMax,int percent)
         {
             Starter starter = new Starter();
             Cell[,] spielfeldNeu = starter.start(xMax);
-            spielfeldNeu = starter.fill(spielfeldNeu);
+            spielfeldNeu = starter.fill(spielfeldNeu,percent);
             
             xMax = xMax - 1;
             for (int x = 0; x < spielfeld.GetLength(0); x++)
