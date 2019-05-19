@@ -102,66 +102,85 @@ namespace GoL
         public static void botLeftCorner(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x)
         {
             int counter = 0;
+            counter += checkTop(spielfeld, x, 0);
+            counter += checkTopRight(spielfeld, x, 0);
+            counter += checkRight(spielfeld, x, 0);
+            
+            if (counter >= 3)
+            {
+                spielfeldNeu[x, 0].Status = true;
+            }
         }
 
         //[Zeile,Spalte]
         public static void topRightCorner(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x)
         {
-            if (spielfeld[0, x - 1].Status == true && spielfeld[1, x].Status == true &&
-                spielfeld[1, x - 1].Status == true)
+            int counter = 0;
+            counter += checkLeft(spielfeld, 0, x);
+            counter += checkBotLeft(spielfeld, 0, x);
+            counter += checkBot(spielfeld, 0, x);
+
+            if (counter >= 3)
             {
                 spielfeldNeu[0, x].Status = true;
-            }
-            else
-            {
-                spielfeldNeu[0, x].Status = false;
             }
         }
 
         public static void botRightCorner(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x)
         {
-            if (spielfeld[x - 1, x - 1].Status == true && spielfeld[x, x - 1].Status == true &&
-                spielfeld[x - 1, x].Status == true)
+            int counter = 0;
+            counter += checkTop(spielfeld, x, x);
+            counter += checkTopLeft(spielfeld, x, x);
+            counter += checkLeft(spielfeld, x, x);
+            
+            if (counter >= 3)
             {
                 spielfeldNeu[x, x].Status = true;
             }
-            else
-            {
-                spielfeldNeu[x, x].Status = false;
-            }
         }
 
-        public static void topRow(Cell[,] spielfeld, Cell[,] spielfeldNeu, int i)
+        public static void topRow(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
         {
             int counter = 0;
-            if (spielfeld[0, i - 1].Status == true)
-            {
-                counter++;
-            }
-
-            if (spielfeld[1, i - 1].Status == true)
-            {
-                counter++;
-            }
-
-            if (spielfeld[1, i].Status == true)
-            {
-                counter++;
-            }
-
-            if (spielfeld[1, i + 1].Status == true)
-            {
-                counter++;
-            }
-
-            if (spielfeld[0, i + 1].Status == true)
-            {
-                counter++;
-            }
+            counter += checkLeft(spielfeld, x, y);
+            counter += checkBotLeft(spielfeld, x, y);
+            counter += checkBot(spielfeld, x, y);
+            counter += checkBotRight(spielfeld, x, y);
+            counter += checkRight(spielfeld, x, y);
 
             if (counter >= 3)
             {
-                spielfeldNeu[0, i].Status = true;
+                spielfeldNeu[x, y].Status = true;
+            }
+        }
+        
+        public static void botRow(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        {
+            int counter = 0;
+            counter += checkLeft(spielfeld, x, y);
+            counter += checkTop(spielfeld, x, y);
+            counter += checkTopLeft(spielfeld, x, y);
+            counter += checkTopRight(spielfeld, x, y);
+            counter += checkRight(spielfeld, x, y);
+
+            if (counter >= 3)
+            {
+                spielfeldNeu[x, y].Status = true;
+            }
+        }
+        
+        public static void leftRow(Cell[,] spielfeld, Cell[,] spielfeldNeu, int x,int y)
+        {
+            int counter = 0;
+            counter += checkRight(spielfeld, x, y);
+            counter += checkTop(spielfeld, x, y);
+            counter += checkTop(spielfeld, x, y);
+            counter += checkTopRight(spielfeld, x, y);
+            counter += checkRight(spielfeld, x, y);
+
+            if (counter >= 3)
+            {
+                spielfeldNeu[x, y].Status = true;
             }
         }
     }
