@@ -1,3 +1,4 @@
+using System;
 using System.Xml.Linq;
 
 namespace GoL
@@ -251,6 +252,21 @@ namespace GoL
             }
 
             return counter;
+        }
+
+        public static bool checkIfDone(Cell[,] spielfeld, Cell[,] pivot)
+        {
+            for (int x = 0; x < spielfeld.GetLength(0); x++)
+            {
+                for (int y = 0; y < spielfeld.GetLength(0); y++)
+                {
+                    if (spielfeld[x,y].Status != pivot[x,y].Status)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }
