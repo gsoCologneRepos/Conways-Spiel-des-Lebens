@@ -5,18 +5,18 @@ namespace GoL
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Wie gross soll das Spielfeld sein?");
-            int xMax = Int32.Parse(Console.ReadLine());
+            int xMax = int.Parse(Console.ReadLine());
             
             Console.WriteLine("Wie gross ist die Wahrscheinlichkeit, dass eine tote Zelle erschaffen wird?");
-            int percent = Int32.Parse(Console.ReadLine());
+            int percent = int.Parse(Console.ReadLine());
             if (percent > 100)
             {
                 Console.WriteLine("Wahrscheinlichkeit zu hoch! Starte neu!");
                 Console.ReadKey();
-                Environment.Exit(0);
+                Environment.Exit(0x0);
             }
             
             
@@ -35,11 +35,11 @@ namespace GoL
                 pivot = spielfeld;
                 spielfeld = Starter.spielzug(spielfeld, xMax,percent);
                 round++;
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
                 if (Logik.checkIfDone(spielfeld, pivot))
                 {
                     Console.WriteLine("Spiel beendet.");
-                    Environment.Exit(0);
+                    Environment.Exit(0x0);
                 }
             }
         }

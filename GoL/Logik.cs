@@ -94,7 +94,7 @@ namespace GoL
             counter += checkBotRight(spielfeld, 0, 0);
             counter += checkBot(spielfeld, 0, 0);
 
-            if (counter >= 3)
+            if (counter == 3)
             {
                 return true;
             }
@@ -110,7 +110,7 @@ namespace GoL
             counter += checkTopRight(spielfeld, x, 0);
             counter += checkRight(spielfeld, x, 0);
 
-            if (counter >= 3)
+            if (counter == 3)
             {
                 return true;
             }
@@ -126,7 +126,7 @@ namespace GoL
             counter += checkBotLeft(spielfeld, 0, x);
             counter += checkBot(spielfeld, 0, x);
 
-            if (counter >= 3)
+            if (counter == 3)
             {
                 return true;
             }
@@ -141,7 +141,7 @@ namespace GoL
             counter += checkTopLeft(spielfeld, xMax, xMax);
             counter += checkLeft(spielfeld, xMax, xMax);
 
-            if (counter >= 3)
+            if (counter == 3)
             {
                 return true;
             }
@@ -158,7 +158,7 @@ namespace GoL
             counter += checkBotRight(spielfeld, x, y);
             counter += checkRight(spielfeld, x, y);
 
-            if (counter >= 3)
+            if (counter == 3)
             {
                 return true;
             }
@@ -175,7 +175,7 @@ namespace GoL
             counter += checkTopRight(spielfeld, x, y);
             counter += checkRight(spielfeld, x, y);
 
-            if (counter >= 3)
+            if (counter == 3)
             {
                 return true;
             }
@@ -192,7 +192,7 @@ namespace GoL
             counter += checkBotRight(spielfeld, x, y);
             counter += checkBot(spielfeld, x, y);
 
-            if (counter >= 3)
+            if (counter == 3)
             {
                 return true;
             }
@@ -209,7 +209,7 @@ namespace GoL
             counter += checkBotLeft(spielfeld, x, y);
             counter += checkBot(spielfeld, x, y);
 
-            if (counter >= 3)
+            if (counter == 3)
             {
                 return true;
             }
@@ -229,7 +229,7 @@ namespace GoL
             counter += checkRight(spielfeld, x, y);
             counter += checkTopRight(spielfeld, x, y);
 
-            if (counter >= 3)
+            if (counter == 3)
             {
                 return true;
             }
