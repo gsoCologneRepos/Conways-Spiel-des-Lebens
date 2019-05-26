@@ -49,6 +49,7 @@ namespace GoL
             }
             
             int round = 1;
+            
             while (true)
             {
                 Console.Clear();
@@ -56,7 +57,7 @@ namespace GoL
                 Console.WriteLine("Es leben " + Logik.countAlive(spielfeld) + " Zellen.");
 
                 pivot = spielfeld;
-                spielfeld = Starter.spielzug(spielfeld, xMax, percent);
+                spielfeld = Starter.spielzug(spielfeld, xMax);
                 round++;
 
                 if (Logik.checkIfDone(spielfeld, pivot))

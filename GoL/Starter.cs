@@ -32,10 +32,11 @@ namespace GoL
             return spielfeld;
         }
 
-        public static Cell[,] spielzug(Cell[,] spielfeld, int xMax,int percent)
+        public static Cell[,] spielzug(Cell[,] spielfeld, int xMax)
         {
             Starter starter = new Starter();
             Cell[,] spielfeldNeu = starter.start(xMax);
+            int percent = 1;
             spielfeldNeu = starter.fill(spielfeldNeu,percent);
             
             xMax = xMax - 1;
